@@ -31,12 +31,14 @@ The interface for the MCP server is:
 }
 ```
 
-## How to run
+This tool can be used together with the [CleverChatty CLI](https://github.com/Gelembjuk/cleverchatty-cli) to create an AI chat with memory. The server will remember the messages and return the summary of the previous conversations when requested.
+
+## How to run the server
 
 1. Clone the repository
 ```bash
-git clone
-cd memory-server
+git clone git@github.com:Gelembjuk/cleverchatty-memory.git
+cd cleverchatty-memory
 ```
 
 2. Install uv if not already installed
@@ -53,6 +55,19 @@ uv venv
 ```bash
 source .venv/bin/activate
 ```
+
+5. Install the dependencies
+```bash
+uv sync
+```
+
+6. Run the server
+```bash
+fastapi run mcp_server.py --port 8001
+```
+
+This will start the MCP server with SSE transport on port 8001. You can change the port by modifying the `--port` argument. It will be accessible by the URL `http://localhost:8001/mcp`. You can also use the `--host` argument to change the host. By default, it will be accessible only from localhost. You can change it to `--host 0.0.0.0` to make it accessible from any IP address. 
+
 
 
 
