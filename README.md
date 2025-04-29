@@ -68,6 +68,23 @@ fastapi run mcp_server.py --port 8001
 
 This will start the MCP server with SSE transport on port 8001. You can change the port by modifying the `--port` argument. It will be accessible by the URL `http://localhost:8001/mcp`. You can also use the `--host` argument to change the host. By default, it will be accessible only from localhost. You can change it to `--host 0.0.0.0` to make it accessible from any IP address. 
 
+## Test ad debug
 
+This tool contains also the CLI to test the server. 
+
+```bash
+python manager.py COMMAND
+```
+
+Examples:
+
+```bash
+python manager.py clear-memory
+python manager.py remember "user" "Some message from user"
+python manager.py remember "assistant" "Some response from assistant"
+python manager.py patch-memories
+python manager.py recall
+python manager.py history-dump
+```
 
 
